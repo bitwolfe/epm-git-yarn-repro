@@ -2,9 +2,9 @@
 
 Requirements:
 
-- Yarn
+- A recent Yarn 1.x version installed on your machine.
 
-Running `yarn install` with the configured Yarn 3.2.0 fails with the error:
+Running `yarn install` will run using the configured Yarn 3.2.0 included in the repo and then fails with the error:
 
 ```
 ➤ YN0001: │ Error: ember-promise-modals@https://github.com/simplabs/ember-promise-modals.git#commit=7a02bf670d0f8e84d4e50d0708624aa45bd61e5d: Assertion failed: Unsupported workflow
