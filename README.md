@@ -1,57 +1,20 @@
 # epm-git-yarn-repro
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Requirements:
 
-## Prerequisites
+- Yarn
 
-You will need the following things properly installed on your computer.
+Running `yarn install` with the configured Yarn 3.2.0 fails with the error:
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/)
-* [Yarn](https://yarnpkg.com/)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
+```
+➤ YN0001: │ Error: ember-promise-modals@https://github.com/simplabs/ember-promise-modals.git#commit=7a02bf670d0f8e84d4e50d0708624aa45bd61e5d: Assertion failed: Unsupported workflow
+    at /Users/bitwolfe/code/epm-git-yarn-repro/.yarn/releases/yarn-3.2.0.cjs:426:1497
+    at async ar.mktempPromise (/Users/bitwolfe/code/epm-git-yarn-repro/.yarn/releases/yarn-3.2.0.cjs:319:63472)
+    at async /Users/bitwolfe/code/epm-git-yarn-repro/.yarn/releases/yarn-3.2.0.cjs:423:16
+    at async ar.mktempPromise (/Users/bitwolfe/code/epm-git-yarn-repro/.yarn/releases/yarn-3.2.0.cjs:319:63472)
+    at async /Users/bitwolfe/code/epm-git-yarn-repro/.yarn/releases/yarn-3.2.0.cjs:418:2513
+```
 
-## Installation
+For some reason it seems to get confused by the presence of a pnpm-lock file in the ember-promise-modals repo, almost like it sees and gives up before even trying to install from package.json.
 
-* `git clone <repository-url>` this repository
-* `cd epm-git-yarn-repro`
-* `yarn install`
-
-## Running / Development
-
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Linting
-
-* `yarn lint`
-* `yarn lint:fix`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+Related issue in ember-promise-modals: https://github.com/simplabs/ember-promise-modals/issues/562
